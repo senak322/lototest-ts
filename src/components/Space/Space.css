@@ -1,0 +1,26 @@
+.space {
+    display: flex;
+    margin-bottom: 0.8rem;
+    flex-direction: column;
+}
+
+.space__title {
+    font-size: 14px;
+    font-weight: 600;
+    margin-right: .5rem;
+}
+
+.space__discription {
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.space__wrapper {
+    display: flex;
+    margin-bottom: 0.5rem;
+}
+
+.space__num-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+}

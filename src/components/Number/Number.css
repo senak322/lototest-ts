@@ -1,0 +1,14 @@
+.number {
+  /* min-width: 40px; */
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid gray;
+  border-radius: 5px;
+}
+
+.number_active {
+  background-color: #ffc107;
+  border: none;
+}
