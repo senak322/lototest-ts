@@ -11,6 +11,7 @@ import {
   addToField,
   removeField,
 } from "./store/slices/lotoSlice";
+import { sendResults } from "./utils/api";
 
 function App() {
   const appDispatch = useAppDispatch();
@@ -53,6 +54,15 @@ function App() {
         appDispatch(setResult("Увы, в этот раз не повезло. Попробуйте снова!"));
         appDispatch(setIsTicketWon(false));
       }
+      // Отправка результатов на сервер
+      const resultData = {
+        selectedNumbers: {
+          firstField: firstField,
+          secondField: secondField,
+        },
+        isTicketWon: isWinner,
+      };
+      sendResults(resultData);
     }
   }, [randomArr, firstField, secondField, appDispatch]);
 
