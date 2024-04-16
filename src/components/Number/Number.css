@@ -12,5 +12,8 @@
 .number_active {
   background-color: #ffc107;
   border: none;
-  height: 38px;
+  width: 36px;
+  height: 36px;
+  align-self: center;
+  justify-self: center;
 }

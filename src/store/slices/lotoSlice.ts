@@ -6,14 +6,18 @@ export interface lotoState {
   firstField: number[];
   secondField: number[];
   isTicketWon: boolean;
+  result: string;
 }
 
 const initialState: lotoState = {
-  mainNumbers: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
+  mainNumbers: [
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
+  ],
   secondNumbers: [1, 2],
   firstField: [],
   secondField: [],
   isTicketWon: false,
+  result: "",
 };
 
 const lotoSlice = createSlice({
@@ -34,8 +38,8 @@ const lotoSlice = createSlice({
       state,
       action: PayloadAction<{ number: number; isFirst: boolean }>
     ) => {
-        const { number, isFirst } = action.payload;
-      if (isFirst) {      
+      const { number, isFirst } = action.payload;
+      if (isFirst) {
         state.firstField = state.firstField.filter((el) => el !== number);
       } else {
         state.secondField = state.secondField.filter((el) => el !== number);
@@ -45,9 +49,22 @@ const lotoSlice = createSlice({
     setIsTicketWon: (state, action: PayloadAction<boolean>) => {
       state.isTicketWon = action.payload;
     },
+    setResult: (state, action: PayloadAction<string>) => {
+      state.result = action.payload;
+    },
+
+    removeField: (state) => {
+      state.firstField = [];
+      state.secondField = [];
+    },
   },
 });
 
-export const { addToField, removeFromField, setIsTicketWon } =
-  lotoSlice.actions;
+export const {
+  addToField,
+  removeFromField,
+  setIsTicketWon,
+  setResult,
+  removeField,
+} = lotoSlice.actions;
 export default lotoSlice.reducer;

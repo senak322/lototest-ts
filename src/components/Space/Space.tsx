@@ -14,7 +14,7 @@ function Space({ spaceNumber, intCount }: SpaceProps) {
   );
 
   const correctNumbers = spaceNumber === 1 ? mainNumbers : secondNumbers;
-  const isMain = correctNumbers === mainNumbers
+  const isMain = correctNumbers === mainNumbers;
   return (
     <div className="space">
       <div className="space__wrapper">
@@ -25,7 +25,7 @@ function Space({ spaceNumber, intCount }: SpaceProps) {
       </div>
       <div className="space__num-container">
         {correctNumbers.map((num, index) => {
-          return <Number num={num} key={index} isMain={isMain}/>;
+          return <Number num={num} key={index} isMain={isMain} />;
         })}
       </div>
     </div>
